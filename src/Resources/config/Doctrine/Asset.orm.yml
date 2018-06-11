@@ -1,0 +1,95 @@
+myassetsBundle\Entity\Asset:
+    type: entity
+    table: assets
+    repositoryClass: myassetsBundle\Repository\assetsRepository
+    manyToOne:
+        company:
+          targetEntity: Company
+          nullable: false
+          joinColumn:
+            name: company_id
+            referencedColumnName: id
+        location:
+          targetEntity: Location
+          nullable: false
+          joinColumn:
+            name: location_id
+            referencedColumnName: id
+        contact:
+          targetEntity: Contact
+          nullable: true
+          joinColumn:
+            name: contact_id
+            referencedColumnName: id
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        serialNum:
+            type: string
+            nullable: false
+        assetId:
+            type: string
+            length: 20
+            nullable: true
+        description:
+            type: string
+            length: 254
+            nullable: true
+        createDate:
+            type: datetime
+            nullable: true
+        modifiedDate:
+            type: datetime
+            nullable: true
+        model:
+            type: string
+            nullable: 
+        accessories:
+            type: string
+            length: 254
+            nullable: true
+        colorMeter:
+            type: integer
+        blackMeter:
+            type: integer
+        salesCost:
+            type: decimal
+            precision: 10
+            scale: 2
+            nullable: false
+        spiffAmount:
+            type: decimal
+            precision: 10
+            scale: 2
+        salesperson:
+            type: string
+            length: 40
+            nullable: true
+        rawCost:
+            type: decimal
+            precision: 10
+            scale: 2
+        totalRaw:
+            type: decimal
+            precision: 10
+            scale: 2
+        purchaseDate:
+            type: date
+            nullable: true
+        location:
+            type: string
+            length: 40
+            nullable: true
+        history:
+            type: string
+            length: 100
+            nullable: true
+        notes:
+            type: text
+            nullable: true
+    lifecycleCallbacks:
+        preUpdate: [ updateModifiedDatetime ]

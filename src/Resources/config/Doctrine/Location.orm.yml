@@ -1,0 +1,19 @@
+myassetsBundle\Entity\Location:
+    type: entity
+    table: locations
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 40
+            nullable: false
+        size:
+            type: string
+            length: 40
+            nullable: false
+

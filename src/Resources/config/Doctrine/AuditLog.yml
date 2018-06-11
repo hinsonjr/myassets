@@ -1,0 +1,34 @@
+myassetsBundle\Entity\AuditLog:
+    type: entity
+    table: auditlogs
+    repositoryClass: myassets\Repository\AuditLogRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        table:
+            type: string
+            length: 20
+            nullable: false
+        property:
+            type: string
+            length: 20
+            nullable: false
+        modifiedBy:
+            type: string
+            length: 254
+            nullable: false
+        modifiedDate:
+            type: datetime
+            nullable: false
+        oldvalue:
+            type: string
+            length: 254
+            nullable: false
+        newvalue:
+            type: string
+            length: 254
+            nullable: false
